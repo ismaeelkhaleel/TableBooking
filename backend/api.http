@@ -1,0 +1,17 @@
+###
+POST http://localhost:5000/api/bookings/createBooking HTTP/1.1
+content-Type: application/json
+
+{
+    "date":"2025-01-02",
+    "time":"14:00",
+    "guests":4,
+    "name":"mohd aamir",
+    "contact":901292930
+}
+
+###
+DELETE http://localhost:5000/api/bookings/delete/677a4d1bf7a2952fd217ebf8 HTTP/1.1
+content-Type: application/json
+ 
+
