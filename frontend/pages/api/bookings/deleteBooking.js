@@ -1,10 +1,16 @@
+// pages/api/bookings/deleteBooking.js
 import axios from "axios";
 
 export default async function handler(req, res) {
   if (req.method === "DELETE") {
     const { id } = req.query;
     try {
-      const response = await axios.delete(`http://localhost:5000/api/bookings/delete/${id}`);
+      // Use environment variable for backend URL (local or production)
+      const apiUrl = process.env.NEXT_PUBLIC_BACKEND_API_URL || "http://localhost:5000"; // Default to localhost for local development
+      
+      // Make the DELETE request to the backend API
+      const response = await axios.delete(`${apiUrl}/api/bookings/delete/${id}`);
+      
       return res.status(200).json({ message: "Booking deleted successfully", data: response.data });
     } catch (error) {
       console.error("Error deleting booking:", error.message);
